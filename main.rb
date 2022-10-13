@@ -33,3 +33,7 @@ class Student
     end
   end
 end
+
+class Schedule
+  
+end
