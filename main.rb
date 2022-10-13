@@ -1,3 +1,5 @@
+# Student -> Schedule -> Quarter -> CourseList
+
 class Student
 
   attr_accessor :schedule
