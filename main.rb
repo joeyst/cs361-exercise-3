@@ -40,7 +40,7 @@ class Schedule
 
   attr_accessor :quarters
 
-  def initialize(quarters)
+  def initialize(quarters: [])
     @quarters = quarters
   end
 
@@ -54,7 +54,7 @@ class Quarter
 
   attr_accessor :course_list
 
-  def initialize(course_list)
+  def initialize(course_list: CourseList.new)
     @course_list = course_list
   end
 
