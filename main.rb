@@ -5,12 +5,12 @@ class Student
   attr_accessor :schedule
   MAX_COURSES = 5
 
-  def initialize(schedule)
+  def initialize(schedule=Schedule.new)
     @schedule = schedule
   end
 
   def remove_from_schedule(course, quarter_id)
-    schedule.quarter[quarter_id].course_list.remove(course)
+    schedule.remove_course(course, quarter_id)
   end
 
   def add_to_schedule(course, quarter_id)
@@ -41,11 +41,11 @@ class Schedule
     quarters[quarter_id].max_courses
   end
 
-  def remove_course(quarter_id, course)
+  def remove_course(course, quarter_id)
     quarters[quarter_id].remove_course(course)
   end
 
-  def add_course(quarter_id, course)
+  def add_course(course, quarter_id)
     quarters[quarter_id].add_course(course)
   end
 
