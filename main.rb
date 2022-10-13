@@ -74,4 +74,8 @@ class CourseList
     courses.delete(course)
   end
 
+  def add_course(course)
+    courses << course
+  end
+
 end
