@@ -47,6 +47,18 @@ class Quarter
     @course_list = course_list
   end
 
+  def max_courses
+    course_list.maximum_number_of_courses
+  end
+
+  def remove_course(course)
+    course_list.remove_course(course)
+  end
+
+  def add_course(course)
+    course_list.add_course(course)
+  end
+
 end
 
 class CourseList
