@@ -34,6 +34,7 @@ class Student
         course_list.add(course)
     end
   end
+  
 end
 
 class Schedule
