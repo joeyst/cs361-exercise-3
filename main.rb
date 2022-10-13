@@ -35,5 +35,11 @@ class Student
 end
 
 class Schedule
+
+  attr_accessor :quarters
+
+  def initialize(quarters)
+    @quarters = quarters
+  end
   
 end
