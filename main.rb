@@ -59,3 +59,14 @@ class Quarter
   end
 
 end
+
+class CourseList
+
+  attr_accessor :courses, :maximum_number_of_courses
+
+  def initialize(courses: [], maximum_number_of_courses: MAX_COURSES)
+    @courses = courses
+    @maximum_number_of_courses = maximum_number_of_courses
+  end
+
+end
