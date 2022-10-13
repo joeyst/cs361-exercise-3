@@ -41,5 +41,9 @@ class Schedule
   def initialize(quarters)
     @quarters = quarters
   end
-  
+
+  def get_quarter(quarter_id)
+    quarters[quarter_id]
+  end
+
 end
