@@ -13,14 +13,8 @@ class Student
     schedule.remove_course(course, quarter_id)
   end
 
-  def add_to_schedule(course, quarter_id)
-    quarter     = schedule.quarter[quarter_id]
-    course_list = quarter.course_list
-    max_courses = course_list.maximum_number_of_courses
-
-    if max_courses < MAX_COURSES
-        course_list.add(course)
-    end
+  def add_to_schedule(course, quarter_id, max_number=MAX_COURSES)
+    schedule.add_course(course, quarter_id, max_number)
   end
 
 end
@@ -45,8 +39,8 @@ class Schedule
     quarters[quarter_id].remove_course(course)
   end
 
-  def add_course(course, quarter_id)
-    quarters[quarter_id].add_course(course)
+  def add_course(course, quarter_id, max_number)
+    quarters[quarter_id].add_course(course, max_number)
   end
 
 end
@@ -67,8 +61,8 @@ class Quarter
     course_list.remove_course(course)
   end
 
-  def add_course(course)
-    course_list.add_course(course)
+  def add_course(course, max_number)
+    course_list.add_course(course, max_number)
   end
 
 end
@@ -77,7 +71,7 @@ class CourseList
 
   attr_accessor :courses, :maximum_number_of_courses
 
-  def initialize(courses: [], maximum_number_of_courses: MAX_COURSES)
+  def initialize(maximum_number_of_courses, courses: [])
     @courses = courses
     @maximum_number_of_courses = maximum_number_of_courses
   end
@@ -86,8 +80,10 @@ class CourseList
     courses.delete(course)
   end
 
-  def add_course(course)
-    courses << course
+  def add_course(course, max_number)
+    if maximum_number_of_courses < max_number
+      courses << course
+    end
   end
 
 end
