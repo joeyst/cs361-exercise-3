@@ -9,18 +9,6 @@ class Student
     @schedule = schedule
   end
 
-  def quarter(quarter_id)
-    schedule.quarter[quarter_id]
-  end
-
-  def drop_course(course, quarter_id)
-    quarter(quarter_id).drop(course)
-  end
-
-  def drop_course_from_a_term(quarter, course)
-    quarter
-  end
-
   def remove_from_schedule(course, quarter_id)
     schedule.quarter[quarter_id].course_list.remove(course)
   end
