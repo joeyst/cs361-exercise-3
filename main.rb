@@ -49,3 +49,13 @@ class Schedule
   end
 
 end
+
+class Quarter
+
+  attr_accessor :course_list
+
+  def initialize(course_list)
+    @course_list = course_list
+  end
+
+end
