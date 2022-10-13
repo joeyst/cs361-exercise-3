@@ -37,6 +37,18 @@ class Schedule
     quarters[quarter_id]
   end
 
+  def max_courses(quarter_id)
+    quarters[quarter_id].max_courses
+  end
+
+  def remove_course(quarter_id, course)
+    quarters[quarter_id].remove_course(course)
+  end
+
+  def add_course(quarter_id, course)
+    quarters[quarter_id].add_course(course)
+  end
+
 end
 
 class Quarter
