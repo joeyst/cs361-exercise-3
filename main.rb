@@ -34,7 +34,7 @@ class Student
         course_list.add(course)
     end
   end
-  
+
 end
 
 class Schedule
@@ -68,6 +68,10 @@ class CourseList
   def initialize(courses: [], maximum_number_of_courses: MAX_COURSES)
     @courses = courses
     @maximum_number_of_courses = maximum_number_of_courses
+  end
+
+  def remove_course(course)
+    courses.delete(course)
   end
 
 end
