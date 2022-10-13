@@ -1,10 +1,11 @@
 # Student -> Schedule -> Quarter -> CourseList
 
 class Student
-
+  private
   attr_accessor :schedule
   MAX_COURSES = 5
 
+  public
   def initialize(schedule=Schedule.new)
     @schedule = schedule
   end
@@ -17,12 +18,17 @@ class Student
     schedule.add_course(course, quarter_id, max_number)
   end
 
+  def get_schedule
+    schedule.clone
+  end
+
 end
 
 class Schedule
-
+  private
   attr_accessor :quarters
 
+  public
   def initialize(quarters: [])
     @quarters = quarters
   end
@@ -46,9 +52,10 @@ class Schedule
 end
 
 class Quarter
-
+  private
   attr_accessor :course_list
 
+  public
   def initialize(course_list: CourseList.new)
     @course_list = course_list
   end
@@ -68,10 +75,12 @@ class Quarter
 end
 
 class CourseList
-
+  private
   attr_accessor :courses, :maximum_number_of_courses
+  MAX_NUMBER=5
 
-  def initialize(maximum_number_of_courses, courses: [])
+  public
+  def initialize(maximum_number_of_courses=MAX_NUMBER, courses: [])
     @courses = courses
     @maximum_number_of_courses = maximum_number_of_courses
   end
@@ -87,3 +96,8 @@ class CourseList
   end
 
 end
+
+sch = Schedule.new(quarters: Array.new(100, Quarter.new))
+student = Student.new(sch)
+student.add_to_schedule(Quarter.new, 5)
+puts student.get_schedule
